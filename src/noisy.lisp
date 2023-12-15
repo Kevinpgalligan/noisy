@@ -107,7 +107,7 @@ Based on: https://p5js.org/reference/#/p5/noiseDetail"
   (with-slots (noisefun lod falloff input) N
     (if (= lod 1)
         ;; Don't apply falloff to the noise if there's only one 'frequency'.
-        (funcall noisefun (first coords))
+        (apply noisefun coords)
         (loop repeat lod
               for freq = 1 then (* 2 freq)
               ;; To avoid cons-ing every time this function is called, we
