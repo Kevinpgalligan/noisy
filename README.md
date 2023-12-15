@@ -1,9 +1,7 @@
 ### Description
-Perlin noise for Common Lisp, with an arbitrary number of dimensions.
+Perlin noise for an arbitrary number of dimensions. Example usage is shown below.
 
 ![demonstration of different noise configurations](https://github.com/Kevinpgalligan/noisy/blob/master/noise.png)
-
-Example usage is shown below.
 
 There's a stateless interface and a stateful interface. The latter should be used in an environment where multithreading is expected.
 
@@ -25,7 +23,7 @@ Using quicklisp: `(ql:quickload 'noisy)`.
 
 ### Example usage
 ```lisp
-CL-USER> `(ql:quickload 'noisy)`
+CL-USER> (ql:quickload 'noisy)
 CL-USER> (use-package 'noisy)
 CL-USER> (noise-seed 7)
 CL-USER> (noise-detail :lod 2 :falloff 0.4)
