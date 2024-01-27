@@ -7,6 +7,7 @@
   :license "MIT"
   :author "Kevin Galligan"
   :description "Perlin noise for arbitrary numbers of dimensions."
+  :version "1.0.0"
   :depends-on (:random-state)
   :pathname "src"
   :serial t
