@@ -6,6 +6,7 @@
    :noise-detail
    :make-noise
    :set-noise-detail
+   :noise-gen
    ))
 
 (in-package noisy)
@@ -71,7 +72,8 @@ Use the stateful MAKE-NOISE and NOISE-GEN interface if multiple threads will be 
   "Sets the seed for noise generation."
   (setf *seed* seed)
   ;; Ensure that any new noise values are based on the new seed.
-  (setf *noise-cache* (make-hash-table)))
+  (setf *noise-cache* (make-hash-table))
+  nil)
 
 (defun noise-detail (&key lod falloff)
   "Configure the 'character' of the noise.
