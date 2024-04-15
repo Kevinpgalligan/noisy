@@ -18,6 +18,8 @@ Stateful interface, use where multithreading is expected:
 ### Installation
 Using quicklisp: `(ql:quickload 'noisy)`.
 
+[Pending](https://github.com/quicklisp/quicklisp-projects/issues/2384) addition to the main quicklisp distribution, but can already been downloaded via the [UltraLisp distribution](https://ultralisp.org/projects/Kevinpgalligan/noisy).
+
 ### Example output
 ![visualisation of different noise configurations in 1 dimension](https://github.com/Kevinpgalligan/noisy/blob/master/noise.png)
 ![visualisation of different noise configurations in 2 dimensions](https://github.com/Kevinpgalligan/noisy/blob/master/2d-noise.png)
