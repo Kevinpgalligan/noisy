@@ -64,7 +64,7 @@ Use the stateful MAKE-NOISE and NOISE-GEN interface if multiple threads will be 
   (let ((num-dimensions (length coords)))
     (when (not (gethash num-dimensions *noise-cache*))
       (setf (gethash num-dimensions *noise-cache*)
-            (make-noise num-dimensions :seed *seed*)))
+            (make-noise num-dimensions :seed *seed* :lod *lod* :falloff *falloff*)))
     (let ((N (gethash num-dimensions *noise-cache*)))
       (apply #'noise-gen N coords))))
 
@@ -166,10 +166,7 @@ Based on: https://p5js.org/reference/#/p5/noiseDetail"
             do (rplaca vals-cell
                        (if (= dimensions 1)
                            ;; Edge case again!
-                           (let ((x (car point))
-                                 (x1 (+ (car base-corner) (car offset)))
-                                 (m (car gradient)))
-                             (* m (- x x1)))
+                           (car gradient)
                            (dot-gradient-with-direction gradient base-corner offset point))))
       ;; Now interpolate between the values.
       (loop for x in point
