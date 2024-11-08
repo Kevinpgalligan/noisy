@@ -166,7 +166,10 @@ Based on: https://p5js.org/reference/#/p5/noiseDetail"
             do (rplaca vals-cell
                        (if (= dimensions 1)
                            ;; Edge case again!
-                           (car gradient)
+                           (let ((x (car point))
+                                 (x1 (+ (car base-corner) (car offset)))
+                                 (m (car gradient)))
+                             (* m (- x x1)))
                            (dot-gradient-with-direction gradient base-corner offset point))))
       ;; Now interpolate between the values.
       (loop for x in point
@@ -230,7 +233,7 @@ values of XS by calling the function F on each of the values of YS."
 ;; See here:
 ;;   https://stackoverflow.com/questions/42381244/pure-python-inverse-error-function
 (defun erfinv (z)
-  (if (zerop z) 
+  (if (zerop z)
       0
       (/ (ndtri (/ (+ z 1) 2.0)) (sqrt 2))))
 

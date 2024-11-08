@@ -1,4 +1,4 @@
-### Description
+### Noisy 🔊
 Perlin noise for an arbitrary number of dimensions.
 
 Stateless interface:
